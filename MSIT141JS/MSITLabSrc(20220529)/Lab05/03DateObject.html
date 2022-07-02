@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>03DateObject.html</title>
+</head>
+<body>
+    <script>
+        //建立日期物件語法 1
+        let d = new Date();  //Wed Jun 08 2022 09:12:49 GMT+0800 (台北標準時間)
+        console.log(d);
+
+        //建立日期物件語法 2
+        d = new Date("2022-06-08"); //Wed Jun 08 2022 08:00:00 GMT+0800 (台北標準時間)
+        console.log(d);
+        d = new Date("2022-6-8"); //Wed Jun 08 2022 00: 00: 00 GMT + 0800(台北標準時間)
+        console.log(d);
+        d = new Date("2022-6-8T9:5:30"); //Invalid Date
+        console.log(d);
+        d = new Date("2022-06-08T09:05:30"); //Wed Jun 08 2022 09:05:30 GMT+0800 (台北標準時間)
+        console.log(d);
+        d = new Date("2022-06-08T9:5:30"); //Invalid Date
+        console.log(d);
+        d = new Date("2022-6-8T09:05:30"); //Invalid Date
+        console.log(d);
+        d = new Date("2022/6/8 9:5:30"); //Wed Jun 08 2022 09:05:30 GMT+0800 (台北標準時間)
+        console.log(d);
+        d = new Date("2022/6/8 9:5:30 pm"); //Wed Jun 08 2022 21:05:30 GMT+0800 (台北標準時間)
+        console.log(d);
+        d = new Date("2022/6/8 21:5:30"); //Wed Jun 08 2022 21:05:30 GMT+0800 (台北標準時間)
+        console.log(d);
+
+
+        //建立日期物件語法 3
+        console.log("===========================");
+        d = new Date(2022, 5, 8);  //
+        console.log(d);
+        d = new Date(2022, 5, 8, 9, 8, 20); //
+        console.log(d);
+
+        d = new Date("2022/6/31"); //
+        console.log(d);
+        d = new Date("2022/6/32"); //
+        console.log(d);
+        d = new Date(2022, 5, 31); //Fri Jul 01 2022 00:00:00 GMT+0800 (台北標準時間)
+        console.log(d);
+        d = new Date(2022, 5, 32);
+        console.log(d);
+
+        console.log("===========================");
+        d = new Date(2022, 1, 29); //Tue Mar 01 2022 00:00:00 GMT+0800 (台北標準時間)
+        console.log(d);
+
+        d = new Date("2022/2/29"); //Tue Mar 01 2022 00:00:00 GMT+0800 (台北標準時間)
+        console.log(d);
+
+
+        d = new Date();
+        let theYear = d.getFullYear() - 1911;
+        let theMonth = d.getMonth() + 1;
+        let theDate = d.getDate();
+         console.log(d);
+         console.log(`民國${theYear}年${theMonth}月${theDate}日`);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>01eventHandler1.html</title>
+    <script>
+        function f1() {
+            alert("method1");
+        }
+        function f2() {
+            alert("method2");
+        }
+        function f3() {
+            alert("method3");
+        }
+        function init()
+        {
+            document.getElementById("m2").onclick = f2;
+            document.getElementById("m2").onclick = function ()  /*匿名函數寫法: 因為為"="因此覆蓋掉前面的函數*/ {
+                alert("method2 匿名函數");
+            };
+            document.getElementById("m3").addEventListener("click", f3, false);
+            document.getElementById("m3").addEventListener("click", function f3()  /*匿名函數寫法:因為為add因此不會覆蓋前面的函數*/ {
+                alert("method3 匿名函數");
+            });
+        }
+
+        /*window.onload = init;*/  //因為此會載入所有資源，改用以下DOMContentLoaded做法
+        document.addEventListener("DOMContentLoaded", init); //因為init函數只用過一次，因此使用匿名函數
+        //document.addEventListener("DOMContentLoaded", function () {
+        //    document.getElementById("m2").onclick = f2;
+        //    document.getElementById("m2").onclick = function ()  /*匿名函數寫法: 因為為"="因此覆蓋掉前面的函數*/ {
+        //        alert("method2 匿名函數");
+        //    };
+        //    document.getElementById("m3").addEventListener("click", f3, false);
+        //    document.getElementById("m3").addEventListener("click", function f3()  /*匿名函數寫法:因為為add因此不會覆蓋前面的函數*/ {
+        //        alert("method3 匿名函數");
+        //    });
+        //}); //匿名函數
+    </script>
+
+</head>
+
+<body>
+    <!--HTML屬性事件處理程序-->
+    <h1 onclick="f1()">method1</h1>
+
+    <!-- JavaScript屬性事件處理程序 -->
+    <h1 id="m2">method2</h1>
+
+    <!-- W3C DOM 事件處理程序 -->
+    <h1 id="m3">method3</h1>
+    
+    <!--<script>
+        function f1() {
+            alert("method1");
+        }
+        function f2() {
+            alert("method2");
+        }
+        function f3() {
+            alert("method3");
+        }
+        document.getElementById("m2").onclick = f2;
+        document.getElementById("m2").onclick = function ()  /*匿名函數寫法: 因為為"="因此覆蓋掉前面的函數*/
+        {
+            alert("method2 匿名函數");
+        };
+        document.getElementById("m3").addEventListener("click", f3, false);
+        document.getElementById("m3").addEventListener("click", function f3()  /*匿名函數寫法:因為為add因此不會覆蓋前面的函數*/
+        {
+            alert("method3 匿名函數");
+        });
+
+    </script>-->
+</body>
+</html>

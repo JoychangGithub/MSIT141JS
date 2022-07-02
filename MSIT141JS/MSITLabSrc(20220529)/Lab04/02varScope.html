@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>02varScope.html</title>
+</head>
+<body>
+    <script>
+            //廣域(全域)變數:
+        var a = 100;
+    
+    
+            //函數宣告定義
+        function f() {
+            var a = 10;
+            console.log(`function in a=${a}`);
+       
+            console.log(`window.a in a=${window.a}`);
+            console.log(`this.a in a=${this.a}`);
+        }
+        //廣域(全域)變數:在函數內部不使用var
+        function f() {
+            a = 10;
+            console.log(`function in a=${a}`)
+
+        }
+        //用block變數
+        /* for (let a = 1...)*/
+        //function f() {
+        //    var a = 10;
+        //    console.log(`block in a=${a}`)
+        //    for (let a = 1; a < 3; a++) {
+        //        console.log(`block in a=${a}`);
+        //        console.log(`window.a in a=${window.a}`);
+        //        console.log(`this.a in a=${this.a}`);
+        //    }
+
+        //}
+        /* for (a = 1...)*/
+        //function f() {
+        //    var a = 10;
+        //    console.log(`block in a=${a}`)           
+        //    for (/*let */a = 1; a < 3; a++) {
+        //        console.log(`block in a=${a}`);
+        //        console.log(`window.a in a=${window.a}`);
+        //        console.log(`this.a in a=${this.a}`); }
+
+        //}
+        /*for (var a = 1...)*/
+        function f() {
+            /*var a = 10;*/
+            console.log(`block in a=${a}`)
+            for (var a = 1; a < 3; a++) {
+                console.log(`block in a=${a}`);
+                console.log(`window.a in a=${window.a}`);
+                console.log(`this.a in a=${this.a}`);}
+
+        }
+
+
+    
+            //呼叫函數
+        console.log(`call function before a=${a}`);
+        console.log(`window.a in a=${window.a}`)
+        console.log(`this.a in a=${this.a}`)
+        f();
+        console.log(`call function after a=${a}`);
+        console.log(`window.a in a=${window.a}`)
+        console.log(`this.a in a=${this.a}`)
+
+    </script>
+</body>
+</html>

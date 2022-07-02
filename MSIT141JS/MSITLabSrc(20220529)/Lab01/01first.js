@@ -1,0 +1,1 @@
+﻿document.write("MSIT141<br>JavaScript");

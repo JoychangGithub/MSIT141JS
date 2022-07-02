@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>05ArrayObject.html</title>
+</head>
+<body>
+    <script>
+        //Array 物件
+        let balls = ["baseball", "baseketball", "tennis", 345];
+        console.log(balls);
+
+        // 方法1
+        let myfoods = [["apple", "banana", "grape"], ["pork", "beef"]];
+         for (let i = 0, maxi = myfoods.length; i < maxi; i++) {
+             for (let j = 0, maxj = myfoods[i].length; j < maxj; j++) {
+                 console.log(myfoods[i][j]);
+             }
+        }
+
+        // 方法2
+        for (let foods of myfoods)
+        {
+            for (let food of foods)
+            {
+                console.log(food);
+            }
+        }
+
+        //Array 方法
+        let ary = [1, 2, 3];
+        console.log(balls.concat(ary)); //(7) ['baseball', 'baseketball', 'tennis', 345, 1, 2, 3]
+
+        console.log(balls.join("-")); //baseball-baseketball-tennis-345
+        console.log(balls);  //(4) ['baseball', 'baseketball', 'tennis', 345]
+
+        console.log(balls.reverse());//[345, 'tennis', 'baseketball', 'baseball']
+
+        balls.push("itemA", "itemB", "itemC"); //(7) [345, 'tennis', 'baseketball', 'baseball', 'itemA', 'itemB', 'itemC']
+        console.log(balls);
+
+        console.log(balls.push("itemA", "itemB", "itemC")); //10
+
+        balls.pop();  //(9) [345, 'tennis', 'baseketball', 'baseball', 'itemA', 'itemB', 'itemC', 'itemA', 'itemB']
+        console.log(balls.pop());  //itemB
+        console.log(balls); //(9) [345, 'tennis', 'baseketball', 'baseball', 'itemA', 'itemB', 'itemC', 'itemA', 'itemB']
+
+        //console.log(balls.slice(1, 4)); //(3) ['tennis', 'baseketball', 'baseball']
+        //console.log(balls);  //(9) [345, 'tennis', 'baseketball', 'baseball', 'itemA', 'itemB', 'itemC', 'itemA', 'itemB']
+
+        //balls.splice(1, 2, "item1", "item2", "item3");//(10) [345, 'item1', 'item2', 'item3', 'baseball', 'itemA', 'itemB', 'itemC', 'itemA', 'itemB']
+        //console.log(balls);
+    </script>
+</body>
+</html>

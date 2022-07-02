@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>04Object.html</title>
+</head>
+<body>
+    <div id="myDiv"></div>
+    <script>
+        let cars={
+            brand:"tesla",
+            "max speed":300,
+            color: "white",
+            display: function () {
+                console.log(this);  //cars: 因為為cars的屬性因此藥用cars去呼叫
+                return `${this.brand},${this["max speed"]}`
+            }
+            //display: () => {
+            //    console.log(this);  //window
+            //    return `${this.brand},${this["max speed"]}`
+                
+            //}
+            //display: () => {
+            //    console.log(this);  //window
+            //    return `${cars.brand},${cars["max speed"]}`
+            //}
+        }
+        console.log(cars); //{brand: 'tesla', max speed: 300, color: 'white', display: ƒ}
+        //display: ƒ () max speed: 300
+        console.log(cars.display()); //tesla,300
+
+        //for..in
+        console.log("=======================");
+        let myDiv = document.getElementById("myDiv");
+        for (let prop in cars)
+        {
+            console.log(prop);
+            console.log("++++++++++++++");
+            console.log(cars[prop]);
+            myDiv.innerHTML += `<li>cars[${prop}"]=${cars[prop]}"</li>`
+        }
+
+    
+    </script>        
+</body>
+</html>

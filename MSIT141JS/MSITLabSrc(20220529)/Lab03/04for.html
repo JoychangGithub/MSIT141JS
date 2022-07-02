@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>04for.html</title>      
+    <style>
+        table, td {
+            border: blue solid 2px;
+            border-collapse: collapse;
+            background-color: #D2E9FF;
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <script>        
+        //let sum = 0;
+        //for (let i = 1; i <= 5; i++) {
+        //    //sum=sum+i;
+        //    sum += i;
+        //    console.log("i="+i+",sum="+sum);
+        //}
+
+        var i;
+        var j;       
+        var t="";
+        for (i = 2; i < 10; i++)
+        {
+            var nums = "";
+            for (j=1; j < 10; j++)
+            {
+                nums += `${i}*${j}=${i * j}<br>`;                           
+            }
+           
+            t += `<td>${nums}</td>`
+                      
+        }
+        document.write(`<table><tr>${t}</tr></table>`);
+
+
+
+    </script>
+</body>
+</html>

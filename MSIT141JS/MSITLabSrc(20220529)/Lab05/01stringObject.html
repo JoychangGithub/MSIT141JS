@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>01stringObject.html</title>
+</head>
+<body>
+    <div id="info"></div>
+    <script>
+        //字串變數
+        let str = "java script";     
+        console.log(typeof str);  //string
+        //字串物件
+        let strObj = new String("java script Hello");
+        console.log(typeof strObj);  //object
+
+        console.log("strObj.charAt(3)= " +strObj.charAt(3));  //a
+        console.log("strObj.charCodeAt(3)=" + strObj.charCodeAt(3)); //97
+        console.log("strObj.indexOf('a')=" + strObj.indexOf('a')); //1
+        console.log("strObj.lastIndexOf('a')=" + strObj.lastIndexOf('a')); //3
+        console.log("strObj.lastIndexOf('@')=" + strObj.lastIndexOf('@')); //-1 (找不到時回傳-1)
+        console.log("strObj.substr(5,3)=" + strObj.substr(5, 3)); /*scr*/
+        console.log("strObj.substr(5)=" + strObj.substr(5)); /*script Hello*/
+        console.log("strObj.substring(5,8)=" + strObj.substring(5, 8)); /*scr*/
+        console.log("strObj.split(' ')=" + strObj.split(' '));//java,script,Hello
+        console.log("strObj.split(' ',2)=" + strObj.split(' ', 2));//java,script
+        let strAry = strObj.split(' ');
+        console.log(strAry); /*Array(3) 0: "java" 1: "script" 2: "Hello"*/
+
+
+        console.log("strObj.toUpperCase()=" + strObj.toUpperCase());//JAVA SCRIPT HELLO
+
+        let strObj3 = new String("一二三");
+        let ch = strObj.charCodeAt(0);
+        console.log(ch);  //106
+        if (ch >= 0x4e00 && ch <= 0x9fff)
+            console.log(true);
+        else console.log(false);  //false
+    </script>
+</body>
+</html>

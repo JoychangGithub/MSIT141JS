@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>07JSON.html</title>
+   <style>
+       div {
+           border:1px solid red;
+       }
+   </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <script>
+        //二維陣列
+        myDatas = [["apple", "banana", "grape"], ["pork", "beef"]];
+        console.log(myDatas[1][0]);  //pork
+        for (let i = 0, maxi = myDatas.length; i < maxi; i++) {
+            for (let j = 0, maxj = myDatas[i].length; j < maxj; j++) {
+                console.log(myDatas[i][j]);
+            }
+        }
+
+        //array = [value,value,value]
+        let names = ["Tom", "Jack", "Mary"];
+
+
+        //object {property:value,property:value}
+        let obj = { name: "Paul", age: 20 };
+        //    alert(obj.name);
+        //    alert(obj.age)
+
+        //JSON array + object
+        // let emps = [{},{},{}];
+        // let obj = {emps:[{},{},{}]}
+
+        let emps = [{ name: "Jack", age: 20 },
+                    { name: "Mary", age: 29 },
+                    { name: "Steve", age: 24 }];
+
+        //emps - array
+        //emps[1] - object
+        //emps[1].name - Mary
+        console.log(emps); //Array(3)
+        console.log(emps[0]); //Object
+        console.log(emps[0].name);  //Jack
+
+        var data = {"emps":[
+                      {"name":"Tom","workYears":3,"salary":45000},
+                      {"name":"Jack","workYears":5,"salary":55000},
+                      {"name":"Mary","workYears":7,"salary":65000}
+                   ]};
+
+        //data - object       
+        //data.emps - array             
+        //data.emps[0] - object       
+        //data.emps[0].name - Tom     
+
+        console.log(data.emps); //Array:(3) [{…}, {…}, {…}]
+        console.log(data.emps[1]); //Object:{name: 'Jack', workYears: 5, salary: 55000}
+        console.log(data.emps[1].workYears);  //5
+
+
+        //列出內容:方法1
+        console.log("方法1================================");
+        for (let prop in data)
+        {
+            console.log(prop);  //emps
+            console.log(data[prop]);
+
+            for (let value of data[prop])
+            {
+                console.log(value);
+            }
+
+        }
+
+        //列出內容:方法2
+        console.log("方法2================================");
+        let name, wy, salary;
+        let str = "<ul>";
+
+        for (let value of data.emps)
+        {
+            //console.log(value); //{name: 'Tom', workYears: 3, salary: 45000}
+            //console.log(value.name); //Tom
+            name = value.name;
+            wy = value.workYears;
+            salary = value.salary;
+            console.log(name, wy, salary);
+            str += `<li>${name},${wy},${salary}</li>`;
+        } console.log(str);
+        str += "</ul>";
+        console.log(document.getElementById("div1"))
+        
+        document.getElementById("div1").innerHTML = str;
+        document.write(str);
+
+        str += "</div>";
+        document.write("<div>"+ str);
+       
+    </script>
+</body>
+</html>
